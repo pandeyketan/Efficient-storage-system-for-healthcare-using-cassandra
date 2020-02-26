@@ -1,0 +1,19 @@
+Casssendra:
+
+Replica placement strategy − simple strategy, old network topology strategy (rack-aware strategy), and network topology strategy (datacenter-shared strategy).
+
+column family: 
+keys_cached − It represents the number of locations to keep cached per SSTable.
+
+rows_cached − It represents the number of rows whose entire contents will be cached in memory.
+
+preload_row_cache − It specifies whether you want to pre-populate the row cache.
+
+Column: column name, value, and a time stamp
+SuperColumn: stores a map of sub-columns.
+
+Cassandra does not support joins, group by, OR clause, aggregations, etc.
+
+Maximize the number of writes
+In Cassandra, writes are very cheap. Cassandra is optimized for high write performance.
+

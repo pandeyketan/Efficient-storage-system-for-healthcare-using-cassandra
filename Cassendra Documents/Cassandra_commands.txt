@@ -1,0 +1,53 @@
+CASANDRA COMMANDS:
+
+To create keyspace :
+$CREATE KEYSPACE minorDB
+..WITH replication = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 3 };
+
+Use keyspace:
+$USE minorDB;
+
+Create Tabel:
+$CREATE TABLE IF NOT EXISTS 
+..monorDB.user_health_profile(User_Name varchar,DOB date,Sex varchar,Age int,Height float,Weight float,BMI float,Disease varchar, PRIMARY KEY(User_Name,Disease,Age));
+
+Insert Into Tabel:
+$INSERT INTO monorDB.user_health_profile(User_Name ,DOB ,Sex ,Age ,Height ,Weight ,BMI ,Disease ) 
+..VALUES("Brown, Mia",24-11-1987,"F",21,65.78331,112.9925,18.35764628,"Tularemia");
+
+Create Materialized View:
+$CREATE MATERIALIZED VIEW hospital_users AS 
+..SELECT (User_Name,MaritalStatusID,GenderID,Zip,DOB,Sex,MaritalDesc,Age,Height,Weight,BMI,user_type1,user_type2) 
+..FROM minorDB.user_profile 
+..WHERE user_type2=1 
+..AND User_Name IS NOT NULL AND DOB IS NOT NULL AND zip IS NOT NULL AND user_type1 IS NOT NULL AND user_type2 IS NOT NULL 
+..PRIMARY KEY (User_Name,DOB,zip,user_type1,user_type2);
+
+Copy From CSV file:
+$COPY minorDB.user_health_profile (User_Name ,DOB ,Sex ,Age ,Height ,Weight ,BMI ,Disease ) 
+..FROM '../database/user_health_profile.csv' 
+..WITH HEADER = TRUE ;
+
+Print Table:
+$SELECT * FROM user_health_profile;
+
+List All Materialized View in System:
+$select * from system_schema.views;
+
+Drop Materialized View:
+$DROP MATERIALIZED VIEW IF EXISTS hospital_users;
+
+Drop Table:
+$DROP KEYSPACE  IF EXISTS user_health_profile;
+
+Drop Keyspace:
+$DROP KEYSPACE  IF EXISTS minorDB;
+
+
+NODETOOL COMMANDS:
+
+Check the state of all the connected nodes of the distributed system:
+$nodetool status 127.0.0.1 9042
+
+Check whether the column in present on the node
+$nodetool getendpoints <keyspace> <column> <value> 127.0.0.1

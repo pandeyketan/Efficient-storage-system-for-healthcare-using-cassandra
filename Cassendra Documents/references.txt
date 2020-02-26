@@ -1,0 +1,7 @@
+https://www.linode.com/docs/databases/cassandra/set-up-a-cassandra-node-cluster-on-ubuntu-and-centos/
+https://www.youtube.com/watch?v=oYSiowX9fVY
+https://www.digitalocean.com/community/tutorials/how-to-run-a-multi-node-cluster-database-with-cassandra-on-ubuntu-14-04
+https://www.youtube.com/watch?v=oHMJrhMtv3c
+https://docs.datastax.com/en/cassandra/3.0/cassandra/tools/toolsStatus.html
+https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlCreateMaterializedView.html
+https://www.datastax.com/blog/2014/04/testing-cassandra-1000-nodes-time

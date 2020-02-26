@@ -1,0 +1,23 @@
+Cassandra requirement: 
+python2.x
+JVM (Java 8)
+
+open the cmd to your cassandra installations bin path.
+run cassandra -f
+
+Start cassandra:
+open the cmd to your cassandra installations bin path.
+run: cassandra  or cassandra -f
+open another cmd to your cassandra installations bin path.
+run: cqlsh
+
+If connection error:
+go to your cassandra installations conf path
+Open cassandra.yaml. 
+Edit the lines containing: data_file_directories, commitlog_directory, saved_caches_directory like
+data_file_directories:
+    - E:\cassandra\storage\data
+
+commitlog_directory: E:\cassandra\storage\commitlog
+
+saved_caches_directory: E:\cassandra\storage\savedcaches
